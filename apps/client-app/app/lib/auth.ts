@@ -26,7 +26,7 @@ export const authOptions = {
                         return {
                             id: existingUser.id.toString(),
                             name: existingUser.name,
-                            email: existingUser.mobNo
+                            mobile: existingUser.mobNo
                         }
                     }
                     return null;
@@ -43,7 +43,7 @@ export const authOptions = {
                     return {
                         id: user.id.toString(),
                         name: user.name,
-                        email: user.mobNo
+                        mobile: user.mobNo
                     }
                 } catch (e) {
                     console.error(e);
@@ -58,7 +58,6 @@ export const authOptions = {
         // TODO: can u fix the type here? Using any is bad
         async session({ token, session }: any) {
             session.user.id = token.sub
-
             return session
         }
     }

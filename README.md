@@ -56,3 +56,6 @@ This Turborepo has some additional tools already setup for you:
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
+- [Prisma](https://prisma.io) for database
+- [Next.js](https://nextjs.org) for server-side rendering
+- [Jotai](https://jotai.org) for state management

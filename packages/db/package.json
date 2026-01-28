@@ -12,8 +12,12 @@
         "db:studio": "prisma studio",
         "db:migrate": "prisma migrate dev"
     },
+    "prisma": {
+        "seed": "ts-node prisma/seed.ts"
+    },
     "dependencies": {
-        "@prisma/client": "^5.10.2"
+        "@prisma/client": "^5.10.2",
+        "ts-node": "^10.9.2"
     },
     "devDependencies": {
         "@repo/typescript-config": "*",

@@ -13,16 +13,44 @@ model User {
   name     String?
   mobNo    String @unique
   password String
+  onRampTransaction onRampTransaction[]
+  Balance Balance[]
 }
 
 model Merchant {
   id        Int      @id @default(autoincrement())
   email     String?  @unique()
   name      String?
-  auth_type AuthType
+  authType  AuthType
+}
+
+model onRampTransaction {
+  id        Int      @id @default(autoincrement())
+  token     String  @unique
+  amount    Int
+  status    OnRampStatus
+  provider  String
+  createdAt DateTime @default(now())
+  userId    Int
+  user      User @relation(fields: [userId], references: [id])
+}
+
+model Balance {
+  id        Int      @id @default(autoincrement())
+  amount    Int
+  userId    Int @unique
+  createdAt DateTime @default(now())
+  locked    Int 
+  user      User @relation(fields: [userId], references: [id])
 }
 
 enum AuthType {
   Google
   Github
+}
+
+enum OnRampStatus {
+  Success
+  Failure
+  Processing
 }

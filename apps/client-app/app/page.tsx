@@ -1,22 +1,17 @@
 "use client";
 
-import Image from "next/image";
-import { Card } from "@repo/ui/card";
-// import { RecoilCounter } from "./components/RecoilCounter";
-// import { useAsyncBalance } from "@repo/store/useBalance";
 import { useBalance } from "@repo/store";
-import { JotaiCounter } from "./components/JotaiCounter";
 import { Appbar } from "@repo/ui/Appbar";
 import { Button } from "@repo/ui/Button";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Page() {
   const [balance, setBalance] = useBalance();
+  const session = useSession();
 
   return (
     <>
-      <Appbar user={{
-        name: "test"
-      }} onSignin={() => { }} onSignout={() => { }} />
+      <Appbar user={session.data?.user} onSignin={signIn} onSignout={signOut} />
 
       <main className="flex flex-col items-center justify-between min-h-screen p-24">
         <div className="mb-12">
